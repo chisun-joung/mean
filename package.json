@@ -15,7 +15,6 @@
   "author": "chisun",
   "license": "MIT",
   "dependencies": {
-    "connect": "^3.4.1",
     "express": "^4.13.4",
     "grunt": "latest"
   }
