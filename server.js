@@ -12,7 +12,7 @@
 
 // console.log('Server running at http://localhost:3000/');
 
-var connect = require('express');
+var express = require('express');
 var app = express();
 
 app.use('/', function(req,res) {
