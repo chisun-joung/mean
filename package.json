@@ -2,7 +2,11 @@
   "name": "mean",
   "version": "1.0.3",
   "dependencies": {
-    "express": "^4.13.4"
+    "body-parser": "^1.15.1",
+    "compression": "^1.6.2",
+    "express": "^4.13.4",
+    "method-override": "^2.3.6",
+    "morgan": "^1.7.0"
   },
   "scripts": {
     "start": "node server.js"
