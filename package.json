@@ -4,6 +4,7 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "compression": "^1.6.2",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
     "method-override": "^2.3.6",
     "morgan": "^1.7.0"
@@ -22,5 +23,5 @@
     "url": "https://github.com/chisun-joung/mean/issues"
   },
   "homepage": "https://github.com/chisun-joung/mean#readme",
-  "description": ""
+  "description": "MEAN WEB development"
 }
