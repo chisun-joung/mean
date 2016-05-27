@@ -56,11 +56,11 @@ UserSchema.pre('save', function(next){
 });
 
 UserSchema.methods.hashPassword = function(password) {
-    return crypto.pdkdf2Sync(password, this.salt, 10000, 64).toString('base64');
+    return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
 }
 
 UserSchema.methods.authenticate = function(password) {
-    return this.password === this.hasPassword(password);
+    return this.password === this.hashPassword(password);
 }
 
 UserSchema.statics.findUniqueUsername =function(username, suffix, callback) {
