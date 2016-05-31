@@ -1,7 +1,8 @@
 {
-    "name" : "mean",
-    "version" : "1.0.7",
-    "dependencies" : {
-        "angular" : "^1.2"
-    }
+  "name": "mean",
+  "version": "1.0.7",
+  "dependencies": {
+    "angular": "^1.2",
+    "angular-route": "^1.5.6"
+  }
 }
