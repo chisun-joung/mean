@@ -14,19 +14,7 @@ module.exports = function(app) {
        failureFlash: true
      }));
      
-     app.get('/signout', users.signout); 
-        
-    app.route('/users')
-        .post(users.create)
-        .get(users.list);
-        
-    app.route('/users/:userId')
-        .get(users.read)
-        .put(users.update)
-        .delete(users.delete);
-        
-    app.param('userId',users.userByID);
-    
+	// Set up the Facebook OAuth routes
     app.get('/oauth/facebook', passport.authenticate('facebook', {
   failureRedirect: '/signin'
 }));
@@ -56,4 +44,7 @@ app.get('/oauth/google/callback', passport.authenticate('google', {
   failureRedirect: '/signin',
   successRedirect: '/'
 }));
+
+	// Set up the 'signout' route
+	app.get('/signout', users.signout);
 };

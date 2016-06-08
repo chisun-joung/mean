@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03476bba-f982-446b-a9d5-bad21b0b0d7e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/index.server.controller.js" afterPath="$PROJECT_DIR$/app/controllers/index.server.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/index.ejs" afterPath="$PROJECT_DIR$/app/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/application.js" afterPath="$PROJECT_DIR$/public/application.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/example/controllers/example.client.controller.js" afterPath="$PROJECT_DIR$/public/example/controllers/example.client.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes/users.server.routes.js" afterPath="$PROJECT_DIR$/app/routes/users.server.routes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/example/views/example.client.view.html" afterPath="$PROJECT_DIR$/public/example/views/example.client.view.html" />
     </list>
     <ignored path="mean.iws" />
     <ignored path=".idea/workspace.xml" />
