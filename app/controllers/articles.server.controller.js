@@ -10,3 +10,30 @@ var mongoose = require('mongoose'),
             return 'Unknown server error' ;
         }
     };
+    
+exports.create = function(req, res) {
+    var article = new Article(req.body);
+    article.creator = req.user;
+    
+    article.save(function(err){
+        if(err) {
+            return res.status(400).send({
+                message: getErrorMessage(err)
+            });
+        } else {
+            res.json(article);
+        }
+    });
+};
+
+exports.list = function(req, res) {
+  Article.find().sort('-created').populate('creator', 'firstName   lastName fullName').exec(function(err, articles) {
+    if (err) {
+      return res.status(400).send({
+        message: getErrorMessage(err)
+      });
+    } else {
+      res.json(articles);
+    }
+  });
+};
