@@ -3,7 +3,7 @@ var User = require('mongoose').model('User'),
 
 var getErrorMessage = function(err) {
     var message = '';
-    
+
     if(err.code){
         switch(err.code) {
             case 11000:
@@ -68,69 +68,7 @@ exports.signup = function(req, res, next) {
     }
 };
 
-exports.signout = function(req,res) {
-    req.logout();
-    res.redirect('/');
-}
-
-exports.create = function (req,res,next) {
-    var user = new User(req.body);
-    
-    user.save(function(err){
-        if(err){
-            return next(err);
-        } else {
-            res.json(user);
-        }
-    });
-};
-
-exports.list = function(req, res, next) {
-    User.find({}, function(err,users){
-        if(err){
-            return next(err);
-        } else {
-            res.json(users);
-        }
-    });
-};
-
-exports.read = function(req, res){
-    res.json(req.user);
-};
-
-exports.userByID = function(req, res, next, id) {
-    User.findOne({
-        _id: id
-    }, function(err, user) {
-        if(err) {
-            return next(err);
-        } else {
-            req.user = user;
-            next();
-        }
-    });
-};
-
-exports.update = function(req,res,next) {
-    User.findByIdAndUpdate(req.user.id, req.body, function(err, user) {
-        if(err) {
-            return next(err);  
-        } else {
-            res.json(user);
-        }
-    });
-};
-
-exports.delete = function(req, res, next) {
-    req.user.remove(function(err){
-        if(err) {
-            return next(err);
-        } else {
-            res.json(req.user);
-        }
-    });
-};
+// Create a new controller method that creates new 'OAuth' users
 
 exports.saveOAuthUserProfile = function(req, profile, done) {
   User.findOne({
@@ -166,7 +104,16 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
   });
 };
 
+// Create a new controller method for signing out
+exports.signout = function(req, res) {
+	// Use the Passport 'logout' method to logout
+	req.logout();
 
+	// Redirect the user back to the main application page
+	res.redirect('/');
+};
+
+// Create a new controller middleware that is used to authorize authenticated operations
 exports.requiresLogin = function(req, res, next) {
   if (!req.isAuthenticated()) {
     return res.status(401).send({
