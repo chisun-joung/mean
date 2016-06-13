@@ -47,6 +47,8 @@ module.exports = function (db) {
     require('../app/routes/articles.server.routes.js')(app);
 
     app.use(express.static('./public'));
+    
     require('./socketio')(server, io, mongoStore);
+
     return server;
 };
