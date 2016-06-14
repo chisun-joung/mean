@@ -3,7 +3,7 @@ var users = require('../../app/controllers/users.server.controller'),
 
 module.exports = function(app) {
     app.route('/signup')
-        .get(users.renderSingup)
+	   .get(users.renderSignup)
         .post(users.signup);
      
     app.route('/signin')
@@ -33,13 +33,12 @@ app.get('/oauth/twitter/callback', passport.authenticate('twitter', {
 }));
 
 app.get('/oauth/google', passport.authenticate('google', {
-  failureRedirect: '/signin',
   scope: [
     'https://www.googleapis.com/auth/userinfo.profile',
     'https://www.googleapis.com/auth/userinfo.email'
   ],
-}));
-
+		failureRedirect: '/signin'
+	}));
 app.get('/oauth/google/callback', passport.authenticate('google', {
   failureRedirect: '/signin',
   successRedirect: '/'

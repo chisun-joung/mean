@@ -33,7 +33,7 @@ exports.renderSignin = function(req, res, next) {
     }
 };
 
-exports.renderSingup = function(req, res, next) {
+exports.renderSignup = function(req, res, next) {
     if(!req.user) {
         res.render('signup', {
             title: 'Sign-up Form' ,
@@ -86,22 +86,18 @@ exports.saveOAuthUserProfile = function(req, profile, done) {
 
           user = new User(profile);
 
-          user.save(function(err) {
-            if (err) {
-              var message = _this.getErrorMessage(err);
-
-              req.flash('error', message);
-              return res.redirect('/signup');
-            }
-
-            return done(err, user);
-          });
-        });
-      } else {
-        return done(err, user);
-      }
-    }
-  });
+					// Try saving the new user document
+					user.save(function(err) {
+						// Continue to the next middleware
+						return done(err, user);
+					});
+				});
+			} else {
+				// Continue to the next middleware
+				return done(err, user);
+			}
+		}
+	});
 };
 
 // Create a new controller method for signing out
