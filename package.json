@@ -23,7 +23,10 @@
   "scripts": {
     "start": "node server.js"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "should" : "~4.0.4",
+    "supertest" : "~0.13.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chisun-joung/mean.git"
