@@ -11,7 +11,7 @@ angular.module('articles').controller('ArticlesController', ['$scope', '$routePa
       article.$save(function(response){
         $location.path('articles/' + response._id);
       }, function(errorResponse) {
-        $scope.error = errorResponse.date.message;
+        $scope.error = errorResponse.data.message;
       } );
     };
 
