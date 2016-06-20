@@ -44,12 +44,12 @@ exports.articleByID = function(req, res, next, id) {
         if(!article) return next(new Error('Failed to load article ' + id)); 
         req.article = article;
         next();
-    })
-}
+    });
+};
 
 exports.read = function(req, res) {
     res.json(req.article);
-}
+};
 
 exports.update = function(req, res) {
   var article = req.article;
